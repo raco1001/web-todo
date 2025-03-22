@@ -15,3 +15,5 @@
    docker compose start // 도커 컴포즈 기동
    ```
 
+✅ 웹 접속<br>
+브라우저에서 localhost:5179로 접속 부탁드립니다. 
