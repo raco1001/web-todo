@@ -1,0 +1,51 @@
+services:
+  backend:
+    build: ./backend
+    container_name: backend_service
+    working_dir: /app
+    volumes:
+      - ./backend:/app      
+      - /app/node_modules
+    ports:
+      - "5001:5000"
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=mariadb://root:root@mariadb_service:3306/todolist
+    command: ["npm", "run", "start:dev"]
+  frontend:
+    build: ./frontend
+    container_name: frontend_service
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5179:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_HOST=0.0.0.0
+      - VITE_API_URL= http://backend:5000 
+    command: ["npm", "run", "dev"]
+
+  database:
+    image: mariadb:latest
+    container_name: mariadb_service
+    ports:
+      - "3309:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql 
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=todolist
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep mariadbd || exit 1"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+volumes:
+  db_data:

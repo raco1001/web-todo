@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List - 로그인</title>
+    <!-- normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Web Font -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css"
+    />
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="container--login">
+      <h1 class="title title--login">로그인</h1>
+      <form id="login-form">
+        <input
+          type="text"
+          class="login-form__input login-form__input--userid"
+          name="userName"
+          placeholder="아이디를 입력해주세요."
+          autocomplete="off"
+          required
+        />
+        <input
+          type="password"
+          class="login-form__input login-form__input--userpw"
+          name="password"
+          placeholder="비밀번호를 입력해주세요."
+          autocomplete="off"
+          required
+        />
+        <p class="login-form__input--err-message">
+          아이디와 비밀번호를 확인해주세요.
+        </p>
+        <button type="submit" class="btn btn--login btn--submit">로그인</button>
+        <button type="button" class="btn btn--join">회원가입</button>
+      </form>
+    </div>
+
+    <script type="module" src="./src/login.js"></script>
+  </body>
+</html>

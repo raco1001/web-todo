@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List - 회원가입</title>
+    <!-- normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Web Font -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css"
+    />
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="container--join">
+      <h1 class="title title--join">회원가입</h1>
+      <form id="join-form">
+        <input
+          type="text"
+          class="join-form__input join-form__input--userid"
+          name="userName"
+          placeholder="아이디를 입력해주세요."
+          autocomplete="off"
+          required
+        />
+        <input
+          type="password"
+          class="join-form__input join-form__input--userpw"
+          name="password"
+          placeholder="비밀번호를 입력해주세요."
+          autocomplete="off"
+          required
+        />
+        <input
+          type="password"
+          class="join-form__input join-form__input--checkpw"
+          name="password"
+          placeholder="비밀번호를 다시 입력해주세요."
+          autocomplete="off"
+          required
+        />
+        <p class="join-form__input--err-message">
+          비밀번호가 일치하지 않습니다.
+        </p>
+        <button type="submit" class="btn btn--join btn--submit">
+          회원가입
+        </button>
+      </form>
+    </div>
+
+    <script type="module" src="./src/join.js"></script>
+  </body>
+</html>

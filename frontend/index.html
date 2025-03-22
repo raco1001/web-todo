@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <!-- normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Web Font -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css"
+    />
+
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="container--main">
+      <!-- 사이드바 -->
+      <aside class="todo-sidebar">
+        <nav class="todo-sidebar__nav">
+          <ul class="todo-sidebar__menu">
+            <li class="todo-sidebar__menu-item" data-menu-id="default">
+              <button type="button" class="todo-sidebar__btn todo-sidebar__btn--my-todo">
+                할 일 목록
+              </button>
+            </li>
+            
+          </ul>
+        </nav>
+        <button type="button" class="todo-sidebar__btn todo-sidebar__btn--create-team">
+          팀 만들기
+        </button>
+      </aside>
+
+      <!-- 메인 -->
+      <main class="todo-main">
+        <form id="todo-main__todo-create-form">
+          <input
+            type="text"
+            class="todo-main__input todo-main__input--create-todo"
+            required
+          />
+          <button
+            type="submit"
+            class="todo-main__btn todo-main__btn--create btn--submit"
+          >
+            등록하기
+          </button>
+        </form>
+
+        <div class="todo-main__group">
+          <section class="todo-main__progress">
+            <h2 class="title todo-main__title">TO DO</h2>
+            <p class="todo-main__progress-empty">할 일 항목이 없습니다.</p>
+            <ul class="todo-main__list todo-main__list--progress">
+            </ul>
+          </section>
+
+          <section class="todo-main__done">
+            <h2 class="title todo-main__title">DONE</h2>
+            <p class="todo-main__done-empty">완료 항목이 없습니다.</p>
+            <ul class="todo-main__list todo-main__list--done">
+            </ul>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- 모달창 -->
+    <section class="modal">
+      <section class="modal__create-team">
+        <div class="modal__create-team__group">
+          <h3 class="modal__title modal__title--create-team">팀 만들기</h3>
+          <input
+            type="text"
+            class="modal__input modal__input--create-team"
+            placeholder="팀 이름을 입력해주세요."
+            required
+          />
+        </div>
+        <div class="modal__create-team-buttons">
+          <button type="submit" class="modal__btn modal__btn--create-team btn--submit">
+            만들기
+          </button>
+          <button type="button" class="modal__btn modal__btn--close">취소</button>
+        </div>
+       </section>
+
+      <section class="modal__invite">
+        <div class="modal__invite__group">
+          <h3 class="modal__title modal__title--invite">팀원 초대하기</h3>
+          <form class="modal__form--invite">
+            <input
+              type="text"
+              class="modal__input modal__input--invite"
+              placeholder="초대할 팀원의 아이디를 입력"
+              required
+            />
+            <button
+              type="submit"
+              class="modal__btn modal__btn--invite btn--submit"
+            >
+              초대
+            </button>
+          </form>
+          <ul class="modal__list modal__list--invited">
+          </ul>
+        </div>
+        <div class="modal__invite-buttons">
+          <button type="button" class="modal__btn modal__btn--close">
+            닫기
+          </button>
+        </div>
+      </section>
+
+      <section class="modal__delete">
+           <p class="modal__delete-message">정말 삭제하시겠습니까?</p>
+           <div class="modal__delete-buttons">
+             <button type="button" class="modal__btn modal__btn--yes btn--submit">확인</button>
+             <button type="button" class="modal__btn modal__btn--no">취소</button>
+           </div>
+       </section>
+    </section>
+
+    <script type="module" src="./src/home.js"></script>
+  </body>
+</html>
